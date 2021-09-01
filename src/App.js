@@ -31,7 +31,7 @@ export default function App() {
         <CssBaseline />
         <Paper elevation={3} className={classes.paper}>
           <Typography component="h1" variant="h5">
-            LLenar formulario
+            Llenar formulario
           </Typography>
          <MyForm toggleDark={toggleDark} setToggleDark={setToggleDark} />
         </Paper>

@@ -45,7 +45,7 @@ const MyForm = (props) => {
           margin="normal"
           id="birthdate"
           name="birthdate"
-          label="Date picker dialog"
+          label="Fecha de nacimiento"
           format="MM/dd/yyyy"
           value={values.birthdate}
           onChange={handleDateChange}
