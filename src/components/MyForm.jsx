@@ -90,7 +90,7 @@ const MyForm = (props) => {
       <MyDialog success={values.open} handleClose={handleClose} />
       <Container>
         <Grid>
-          Cambiar tema<CustomSwitch toggleDark={toggleDark} setToggleDark={setToggleDark}/>
+          Modo {!toggleDark? 'Oscuro' :'Claro'}<CustomSwitch toggleDark={toggleDark} setToggleDark={setToggleDark}/>
         </Grid>
       </Container>
     </form>
