@@ -5,11 +5,12 @@ import DateFnsUtils from "@date-io/date-fns";
 import InputMask from "react-input-mask";
 import Button from "@material-ui/core/Button";
 import Container from "@material-ui/core/Container";
-import {Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid} from "@material-ui/core";
 import CustomSwitch from "./CustomSwitch";
 import {makeStyles} from "@material-ui/core/styles";
 import CustomTextBox from "./CustomTextBox";
 import {useForm} from "../util/validation";
+import MyDialog from "./MyDialog";
+import {Grid} from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
   form: {
@@ -85,27 +86,7 @@ const MyForm = (props) => {
       >
         Registrarse
       </Button>
-      <Dialog
-        open={values.success}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-      >
-        <DialogTitle id="alert-dialog-title">{"Use Google's location service?"}</DialogTitle>
-        <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-            Let Google help apps determine location. This means sending anonymous location data to
-            Google, even when no apps are running.
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose} color="primary">
-            Disagree
-          </Button>
-          <Button onClick={handleClose} color="primary" autoFocus>
-            Agree
-          </Button>
-        </DialogActions>
-      </Dialog>
+      <MyDialog success={values.success} handleClose={handleClose} />
       <Container>
         <Grid>
           Cambiar tema<CustomSwitch toggleDark={toggleDark} setToggleDark={setToggleDark}/>

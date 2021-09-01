@@ -38,9 +38,7 @@ export const useForm = () => {
     if ('phone' in fieldValues) {
       const number = fieldValues.phone
         .replace(/\(\+505\)|#|\s/g, '')
-        /*.replace(/#/, '')
-        .replace(' ', '')*/;
-      console.log(number)
+
       tempError.phone = number.length === 8 ? "" : errorMessage['phone']
     }
 
@@ -86,7 +84,6 @@ export const useForm = () => {
   }*/
 
   const validForm = (fieldValues = values) => {
-    console.log(errors)
     return fieldValues.name &&
       fieldValues.lastname &&
       fieldValues.birthdate &&
