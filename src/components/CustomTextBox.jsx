@@ -9,10 +9,25 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const CustomTextBox = (props) => {
-  const classes = useStyles();
-  const { label } = props
+  const { attr: {label, id, name, handleInput, type='text', errors} } = props
   return(
-    <TextField classes={classes.text}  label={label} />
+    <TextField
+      onBlur={handleInput}
+      onChange={handleInput}
+      variant="standard"
+      margin="normal"
+      required
+      fullWidth
+      id={id}
+      label={label}
+      name={name}
+      type={type}
+      error={errors[name]}
+      {...(errors[name] && {
+        error: true,
+        helperText: errors[name]
+      })}
+    />
   )
 }
 
