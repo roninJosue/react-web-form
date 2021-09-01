@@ -1,11 +1,11 @@
-import React, {useState} from "react";
+import React from "react";
 import TextField from "@material-ui/core/TextField";
 import {KeyboardDatePicker, MuiPickersUtilsProvider} from "@material-ui/pickers";
 import DateFnsUtils from "@date-io/date-fns";
 import InputMask from "react-input-mask";
 import Button from "@material-ui/core/Button";
 import Container from "@material-ui/core/Container";
-import {Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, Modal} from "@material-ui/core";
+import {Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid} from "@material-ui/core";
 import CustomSwitch from "./CustomSwitch";
 import {makeStyles} from "@material-ui/core/styles";
 import CustomTextBox from "./CustomTextBox";

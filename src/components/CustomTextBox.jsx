@@ -1,12 +1,5 @@
 import React from "react";
-import { TextField, makeStyles } from "@material-ui/core";
-
-const useStyles = makeStyles((theme) => ({
-  text:  {
-    marginBottom: '10rem',
-    fontSize: '6rem'
-  }
-}));
+import { TextField } from "@material-ui/core";
 
 const CustomTextBox = (props) => {
   const { attr: {label, id, name, handleInput, type='text', errors} } = props

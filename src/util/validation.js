@@ -74,18 +74,16 @@ export const useForm = () => {
 
     if (validForm()){
       handleSuccess()
-    }else{
-      console.log('Faltan campos')
     }
   }
 
-  const handleError = () => {
+  /*const handleError = () => {
     setValues({
       ...initialFormValues,
       formSubmitted: true,
       success: false
     })
-  }
+  }*/
 
   const validForm = (fieldValues = values) => {
     console.log(errors)
