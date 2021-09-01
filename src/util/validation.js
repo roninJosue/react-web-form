@@ -7,7 +7,8 @@ const initialFormValues = {
   email: "",
   phone: "",
   formSubmitted: false,
-  success: false
+  success: false,
+  open: false
 }
 
 const regexValidEmail = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.[a-z]+)/
@@ -64,7 +65,14 @@ export const useForm = () => {
   }
 
   const handleSuccess = () => {
-    setValues({...initialFormValues, formSubmitted: true, success: true})
+    setValues({...initialFormValues, formSubmitted: true, success: true, open: true})
+  }
+
+  const handleClose = () => {
+    setValues({
+      ...values,
+      open: false
+    })
   }
 
   const handleSubmit = (e) => {
@@ -103,6 +111,8 @@ export const useForm = () => {
     validForm,
     handleSubmit,
     handleDateChange,
+    handleSuccess,
+    handleClose,
     setValues
   }
 }

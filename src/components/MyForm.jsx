@@ -25,20 +25,19 @@ const useStyles = makeStyles(theme => ({
 const MyForm = (props) => {
   const {toggleDark, setToggleDark} = props
   const classes = useStyles()
-  const {handleInput, validForm, errors, handleSubmit, handleDateChange, values, setValues} = useForm();
-
-  const handleClose = () => {
-    setValues({
-      ...values,
-      success: false
-    })
-  }
+  const {handleInput,
+    validForm,
+    errors,
+    handleSubmit,
+    handleDateChange,
+    values,
+    handleClose} = useForm();
 
   return (
     <form noValidate className={classes.form} onSubmit={handleSubmit}>
-      <CustomTextBox attr={{label: "Nombres", name: "name", id: "name", handleInput: handleInput, errors:errors}}/>
-      <CustomTextBox attr={{label: "Apellidos", name: "lastname", id: "lastname", handleInput: handleInput, errors:errors}}/>
-      <CustomTextBox attr={{label: "Correo", name: "email", id: "email", handleInput: handleInput, type: "email", errors:errors}}/>
+      <CustomTextBox attr={{label: "Nombres", name: "name", id: "name", handleInput: handleInput, errors:errors, value:values.name}}/>
+      <CustomTextBox attr={{label: "Apellidos", name: "lastname", id: "lastname", handleInput: handleInput, errors:errors, value:values.lastname}}/>
+      <CustomTextBox attr={{label: "Correo", name: "email", id: "email", handleInput: handleInput, type: "email", errors:errors, value:values.email}}/>
 
       <MuiPickersUtilsProvider utils={DateFnsUtils}>
         <KeyboardDatePicker
@@ -48,6 +47,7 @@ const MyForm = (props) => {
           name="birthdate"
           label="Date picker dialog"
           format="MM/dd/yyyy"
+          value={values.birthdate}
           onChange={handleDateChange}
           KeyboardButtonProps={{
             'aria-label': 'change date',
@@ -60,6 +60,7 @@ const MyForm = (props) => {
         maskChar={"#"}
         onBlur={handleInput}
         onChange={handleInput}
+        value={values.phone}
       >
         {() => <TextField
           fullWidth
@@ -86,7 +87,7 @@ const MyForm = (props) => {
       >
         Registrarse
       </Button>
-      <MyDialog success={values.success} handleClose={handleClose} />
+      <MyDialog success={values.open} handleClose={handleClose} />
       <Container>
         <Grid>
           Cambiar tema<CustomSwitch toggleDark={toggleDark} setToggleDark={setToggleDark}/>

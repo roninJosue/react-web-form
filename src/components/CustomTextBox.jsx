@@ -2,9 +2,10 @@ import React from "react";
 import { TextField } from "@material-ui/core";
 
 const CustomTextBox = (props) => {
-  const { attr: {label, id, name, handleInput, type='text', errors} } = props
+  const { attr: {label, id, name, handleInput, type='text', errors, value} } = props
   return(
     <TextField
+      value={value}
       onBlur={handleInput}
       onChange={handleInput}
       variant="standard"
